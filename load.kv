@@ -1,0 +1,35 @@
+MDBoxLayout:
+	orientation: 'vertical'
+
+	# CREATE TEXTFIEL AND BUTTON
+	MDBoxLayout:
+		padding:10
+		spacing:10
+		# SET THIS LAYOUT TO TOP
+		pos_hint: {'y': 0.9}
+		size_hint_y:0.1
+		MDTextField:
+            id: input_len
+            hint_text: "Insert length"
+            required: True
+            mode: "fill"
+            size_hint_x: 0.3
+        MDTextField:
+            id: input_hei
+            hint_text: "Insert height"
+            required: True
+            mode: "fill"
+            size_hint_x: 0.3
+		MDRaisedButton:
+			text:"Add"
+			# SET BG COLOR OF YOU BUTTON
+			md_bg_color:"orange"
+			# IF YOU CLICK BUTTON THEN ADD TO LIST
+			on_release:app.addnewrectangle(input_len.text,input_hei.text)
+
+	# CREATE LIST ITEM
+	MDBoxLayout:
+		size_hint_x:0.9
+		MDScrollView:
+			MDList:
+				id:todo_list
